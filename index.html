@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav class="nav-bar">
-        <h2>Weather App</h2>
+        <h2>Weather <span>App</span></h2>
     </nav>
-    <search class="search-section">
-        <div id="icon">🔎</div>
+
+    <div class="search-section">
+        <svg width="28" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="2.5">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="16.5" y1="16.5" x2="22" y2="22" />
+        </svg>
+
         <input type="text" id="city-input" placeholder="Search City...">
-        <button id="search-btn">➡️</button>
-    </search>
+
+        <button id="search-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <line x1="1" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="history-section">
+        <div class="search-history"><p>Jaipur</p></div>
+        <div class="search-history"><p>Jaipur</p></div>
+        <div class="search-history"><p>Jaipur</p></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
