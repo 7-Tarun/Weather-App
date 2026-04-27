@@ -1,0 +1,81 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,body{
+    height:100%;
+    width:100%;
+    background-color: var(--bg);
+}
+
+:root {
+  /* Background */
+  --bg:          #060a14;        /* page background */
+  --orb-1:       #1565c0;        /* top-left blob  — sirf yeh 3 badlo weather pe */
+  --orb-2:       #6a1b9a;        /* top-right blob */
+  --orb-3:       #004d40;        /* bottom blob    */
+
+  /* Glass — har card, search, chip sab pe ek hi lagega */
+  --glass:       rgba(255,255,255,0.06);   /* background */
+  --border:      rgba(255,255,255,0.10);   /* border default */
+  --border-h:    rgba(255,255,255,0.22);   /* border hover */
+
+  /* Accent — buttons, active chips, highlights */
+  --accent:      #4fc3f7;
+  --accent-h:    #81d4fa;        /* accent hover */
+
+  /* Text */
+  --text:        #e8f0fe;        /* primary */
+  --muted:       rgba(255,255,255,0.45);   /* labels, hints */
+
+  /* States */
+  --error:       rgba(239,68,68,0.15);     /* error box */
+}
+
+.nav-bar{
+    background-color: var(--glass);
+    color: var(--text);
+    display: flex;
+    padding: 12px 22px;
+    margin-bottom: 15px;
+}
+
+.search-section{
+    background-color: var(--glass);
+    margin: 0 20px;
+    border: 2px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+#icon{
+    font-size: larger;
+}
+
+#h3-icon{
+    font-size: x-large;
+}
+
+#search-btn{
+    border: none;
+    background: transparent;
+    font-size: x-large;
+}
+
+#city-input::placeholder{
+    font-size: large;
+    border: none;
+}
+
+#city-input{
+    background: transparent;
+    justify-content: space-between;
+    padding: 5px;
+    border: none;
+}
