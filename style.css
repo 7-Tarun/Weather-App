@@ -150,7 +150,7 @@ body {
   padding: 5px 25px;
   color: var(--muted);
   border-radius: 60px;
-  cursor: context-menu;
+  cursor: pointer;
   transition: a all 0.2 ease;
 }
 
@@ -165,4 +165,106 @@ body {
 .search-history:active {
   transform: scale(0.97);
   background: rgba(79, 195, 247, 0.14);
+}
+
+/* Common Glass Panel for all cards */
+.glass-panel {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 18px 16px;
+  margin: 0 16px 16px;
+}
+
+/* Main Card Styling */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.temp-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+
+#main-temp {
+  font-size: 70px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+#main-card{
+  margin-top: 20px;
+}
+
+.weather-condition {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#condition-text {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.feels-like {
+  color: var(--muted);
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+  margin-top: 10px;
+}
+
+/* Stats Grid Styling */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 equal columns */
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.stat-box {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s;
+  cursor: context-menu;
+}
+
+.stat-box:hover {
+  border-color: var(--border-h);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.stat-icon {
+  font-size: 20px;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.9px;
+}
+
+.stat-box h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
 }
