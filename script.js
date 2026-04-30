@@ -67,6 +67,7 @@ function updateUI(data) {
 
     const currentCondition = data.weather[0].main;
     weatherIcon.innerText = iconMap[currentCondition] || "🌡️";
+    cityInput.value = "";
 }
 
 searchBtn.addEventListener(`click`, () => {
@@ -144,3 +145,17 @@ function renderHistory() {
     });
 
 }
+
+//Adding Keyboard Enter Support:-
+cityInput.addEventListener('keydown',(event) => {
+    if(event.key === "Enter"){
+        const cityName = cityInput.value.trim();
+
+        if(cityName !== "") {
+            getData(cityName);
+        }
+        else{
+            alert("Please enter the city");
+        }
+    }
+});

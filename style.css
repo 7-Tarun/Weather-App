@@ -3,6 +3,8 @@
   padding: 0%;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 html,
@@ -199,11 +201,11 @@ body {
   letter-spacing: -2px;
 }
 
-#main-card{
+#main-card {
   margin-top: 20px;
 }
 
-.big-card{
+.big-card {
   display: none;
 }
 
@@ -233,13 +235,14 @@ body {
 /* Stats Grid Styling */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 2 equal columns */
+  grid-template-columns: repeat(3, 1fr);
+  /* 2 equal columns */
   gap: 8px;
   margin-top: 15px;
 }
 
 .stat-box {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 10px 6px;
@@ -271,4 +274,93 @@ body {
   font-size: 15px;
   font-weight: 700;
   color: var(--text);
+}
+
+
+
+@media (min-width: 768px) {
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  .nav-bar,
+  .search-section,
+  .history-section,
+  #main-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .nav-bar {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .search-section {
+    margin-top: 30px;
+    padding: 15px 25px;
+    transition: all 0.3s ease;
+  }
+
+  .search-section:focus-within {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),0 0 10px rgba(79, 195, 247, 0.1);
+  }
+
+  #city-input::placeholder {
+    font-size: 16px;
+  }
+
+  .history-section {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  #main-card {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 30px 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      box-shadow 0.4s ease;
+  }
+
+  #main-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(79, 195, 247, 0.1);
+    border-color: var(--border-h);
+  }
+
+  .stat-box {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .stat-box:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+  }
+
+  .search-history {
+    transition: all 0.3s ease;
+  }
+
+  .search-history:hover {
+    transform: translateY(-3px);
+  }
+
+  #search-btn {
+    transition: all 0.3s ease;
+  }
+
+  #search-btn:hover {
+    transform: scale(1.1);
+  }
 }
