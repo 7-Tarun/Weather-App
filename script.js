@@ -8,6 +8,7 @@ const historySection = document.querySelector(`.history-section`);
 const locationText = document.querySelector(`#location`);
 const date = document.querySelector(`#date-time`);
 const conditionText = document.querySelector(`#condition-text`);
+const weatherIcon = document.querySelector(`#weather-icon`);
 const humidity = document.querySelector(`#humidity-val`);
 const wind = document.querySelector(`#wind-val`);
 const high = document.querySelector(`#uv-val`);
@@ -15,8 +16,6 @@ const feels = document.querySelector(`#feels-temp`);
 
 async function getData(city) {
     try {
-        console.log(`Fetching ${city} Data from the internet`);
-
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${Apikey}&units=metric`;
         //url explanation:-
         //1. This is the website url https://api.openweathermap.org/data/2.5/weather
@@ -27,12 +26,7 @@ async function getData(city) {
 
         const response = await fetch(url);
         const weatherData = await response.json();
-
-        console.log("Success, Here is the Data: ", weatherData.main.temp);
-        const condition = weatherData.weather[0].main;
-        console.log("Weather main: ", condition);
-        console.log("Weather Speed: ", weatherData.wind.speed);
-
+        
         updateUI(weatherData);
         updateHistory(weatherData.name);
 
@@ -40,7 +34,7 @@ async function getData(city) {
     }
 
     catch (error) {
-        console.log(`API Fail: ${error}`);
+        alert(`City Not Found: Please check spelling!`);
     }
 }
 
@@ -56,16 +50,32 @@ function updateUI(data) {
     const currentDate = new Date();
     const dateOptions = { weekday: 'short', month: 'short', day: "numeric" };
     date.innerText = currentDate.toLocaleDateString('en-US', dateOptions);
+
+
+    const iconMap = {
+        "Clear": "☀️",
+        "Clouds": "☁️",
+        "Rain": "🌧️",
+        "Drizzle": "🌦️",
+        "Thunderstorm": "⛈️",
+        "Snow": "❄️",
+        "Haze": "🌫️",
+        "Mist": "🌫️",
+        "Smoke": "💨",
+        "Fog": "🌫️"
+    };
+
+    const currentCondition = data.weather[0].main;
+    weatherIcon.innerText = iconMap[currentCondition] || "🌡️";
 }
 
 searchBtn.addEventListener(`click`, () => {
     const cityName = cityInput.value.trim();
     if (cityName !== "") {
-        console.log(`Users wants the weather of: ${cityName}`);
         getData(cityName);
     }
     else {
-        console.log(`Please Enter the city!`);
+        alert(`Please Enter the city!`);
     }
 
 });
@@ -81,7 +91,6 @@ window.addEventListener("load", () => {
     const savedCity = localStorage.getItem('lastCity');
 
     if (savedCity) {
-        console.log(`Your Last Search: ${savedCity}`);
         getData(savedCity);
     }
     else {
