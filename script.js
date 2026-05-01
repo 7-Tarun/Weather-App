@@ -14,6 +14,10 @@ const wind = document.querySelector(`#wind-val`);
 const high = document.querySelector(`#uv-val`);
 const feels = document.querySelector(`#feels-temp`);
 
+const toggle = document.getElementById('unit-toggle');
+const thumb  = document.getElementById('toggle-thumb');
+const track  = document.querySelector('.toggle-track');
+
 async function getData(city) {
     try {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${Apikey}&units=metric`;
@@ -158,4 +162,24 @@ cityInput.addEventListener('keydown',(event) => {
             alert("Please enter the city");
         }
     }
+});
+
+
+//  \((20 \times 1.8) + 32 = 68^\circ\text{F}\)
+
+let isFahrenheit = false;
+
+toggle.addEventListener('click', () => {
+    isFahrenheit = !isFahrenheit;
+
+    if (isFahrenheit) {
+        thumb.textContent = 'F';
+        thumb.classList.add('active');
+        track.classList.add('active');
+    } else {
+        thumb.textContent = 'C';
+        thumb.classList.remove('active');
+        track.classList.remove('active');
+    }
+
 });

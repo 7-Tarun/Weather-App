@@ -11,6 +11,15 @@
 <body>
     <nav class="nav-bar">
         <h2>Weather <span>App</span></h2>
+
+        <div class="unit-toggle" id="unit-toggle">
+            <!-- <span class="toggle-label">C°</span> -->
+            <div class="toggle-track">
+                <div class="toggle-thumb" id="toggle-thumb">°C</div>
+            </div>
+            <!-- <span class="toggle-label">F°</span> -->
+        </div>
+
     </nav>
 
     <div class="search-section">
@@ -44,43 +53,43 @@
 
 
     <!-- <div class="weather-result"> -->
-        <div id="main-card" class="glass-panel big-card">
-            <div class="card-header">
-                <p id="location">📍 Jaipur, India</p>
-                <p id="date-time">Sun, Apr 26</p>
+    <div id="main-card" class="glass-panel big-card">
+        <div class="card-header">
+            <p id="location">📍 Jaipur, India</p>
+            <p id="date-time">Sun, Apr 26</p>
+        </div>
+
+        <div class="temp-section">
+            <h1 id="main-temp">34°<sup class="power">C</sup></h1>
+            <div class="weather-condition">
+                <span id="weather-icon" style="font-size: 45px;">☀️</span>
+                <p id="condition-text">CLEAR SKY</p>
             </div>
+        </div>
 
-            <div class="temp-section">
-                <h1 id="main-temp">34°</h1>
-                <div class="weather-condition">
-                    <span id="weather-icon" style="font-size: 45px;">☀️</span>
-                    <p id="condition-text">CLEAR SKY</p>
-                </div>
+        <p class="feels-like">Feels like <span id="feels-temp">37°</span></p>
+
+        <div class="stats-grid">
+
+            <div class="stat-box">
+                <span class="stat-icon">💧</span>
+                <p class="stat-label">HUMIDITY</p>
+                <h3 id="humidity-val">32%</h3>
             </div>
-
-            <p class="feels-like">Feels like <span id="feels-temp">37°</span></p>
-
-            <div class="stats-grid">
-                
-                <div class="stat-box">
-                    <span class="stat-icon">💧</span>
-                    <p class="stat-label">HUMIDITY</p>
-                    <h3 id="humidity-val">32%</h3>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-icon">💨</span>
-                    <p class="stat-label">WIND</p>
-                    <h3 id="wind-val">12km/h</h3>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-icon">🔥</span>
-                    <p class="stat-label">UV</p>
-                    <h3 id="uv-val">High</h3>
-                </div>
-                
+            <div class="stat-box">
+                <span class="stat-icon">💨</span>
+                <p class="stat-label">WIND</p>
+                <h3 id="wind-val">12km/h</h3>
+            </div>
+            <div class="stat-box">
+                <span class="stat-icon">🔥</span>
+                <p class="stat-label">UV</p>
+                <h3 id="uv-val">High</h3>
             </div>
 
         </div>
+
+    </div>
 
 
     <script src="script.js"></script>
