@@ -1,6 +1,6 @@
 const cityInput = document.querySelector(`#city-input`);
 const searchBtn = document.querySelector(`#search-btn`);
-const Apikey = `ab11889a3dcba8901bba556e1bd29133`;
+const Apikey = `YOUR_API_KEY_HERE`;
 const temp = document.querySelector(`#main-temp`);
 const card = document.querySelector(`#main-card`);
 const historySection = document.querySelector(`.history-section`);
