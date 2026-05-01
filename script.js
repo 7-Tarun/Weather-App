@@ -20,6 +20,7 @@ const track  = document.querySelector('.toggle-track');
 
 let currentCelsius = 0;
 let feelsCelsius = 0;
+let isFahrenheit = false;
 const tempUnit = document.querySelector('.power');
 
 async function getData(city) {
@@ -47,10 +48,13 @@ async function getData(city) {
 }
 
 function updateUI(data) {
+    currentCelsius = data.main.temp;
+    feelsCelsius = data.main.feels_like;
+
     card.classList.remove("big-card");
-    temp.innerText = Math.round(data.main.temp) + '°';
-    feels.innerText = Math.round(data.main.feels_like) + '°';
-    humidity.innerText = data.main.humidity;
+    temp.innerHTML = `${Math.round(feelsCelsius)}°<sup class = "power">C</sup>`;
+    feels.innerHTML = Math.round(data.main.feels_like) + '°';
+    humidity.innerText = data.main.humidity+"%";
     wind.innerText = Math.round(data.wind.speed * 3.6) + 'Km/h';
     conditionText.innerText = data.weather[0].description.toUpperCase();
     locationText.innerText = `📍 ${data.name}, ${data.sys.country}`;
@@ -76,18 +80,15 @@ function updateUI(data) {
     const currentCondition = data.weather[0].main;
     weatherIcon.innerText = iconMap[currentCondition] || "🌡️";
 
-    currentCelsius = data.main.temp;
-    feelsCelsius = data.main.feels_like;
-
     temp.innerText = Math.round(currentCelsius) + "°";
     feels.innerText = Math.round(feelsCelsius) + "°";
 
     isFahrenheit = false;
-    thumb.textContent = 'C'
+    thumb.textContent = '°C'
     thumb.classList.remove('active');
     track.classList.remove('active');
 
-    tempUnit.innerText = 'C';
+    // tempUnit.innerText = '°C';
     cityInput.value = "";
 }
 
@@ -183,7 +184,6 @@ cityInput.addEventListener('keydown',(event) => {
 
 
 //----- Celcius to Fahrenheit Toggle -----//
-let isFahrenheit = false;
 
 toggle.addEventListener('click', () => {
     isFahrenheit = !isFahrenheit;
@@ -191,7 +191,7 @@ toggle.addEventListener('click', () => {
     if (isFahrenheit) {
         let tempF = (currentCelsius * 1.8) + 32;
         let feelsF = (feelsCelsius * 1.8) + 32;
-        temp.innerText = Math.round(tempF) + "°";
+        temp.innerHTML = `${Math.round(tempF)}°<sup class = "power">F</sup>`;
         feels.innerText = Math.round(feelsF) + "°";
 
         tempUnit.innerText = 'F';
@@ -199,10 +199,10 @@ toggle.addEventListener('click', () => {
         thumb.classList.add('active');
         track.classList.add('active');
     } else {
-        temp.innerText = Math.round(currentCelsius) + "°";
+        temp.innerHtml = `${Math.round(currentCelsius)}°<sup class = "power">F</sup>`;
         feels.innerText = Math.round(feelsCelsius) + "°";
 
-        tempUnit.innerText = 'C';
+        // tempUnit.innerText = 'C';
         thumb.textContent = '°C';
         thumb.classList.remove('active');
         track.classList.remove('active');
