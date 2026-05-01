@@ -1,6 +1,6 @@
 const cityInput = document.querySelector(`#city-input`);
 const searchBtn = document.querySelector(`#search-btn`);
-const Apikey = `YOUR_API_KEY_HERE`;
+const Apikey = `ab11889a3dcba8901bba556e1bd29133`;
 const temp = document.querySelector(`#main-temp`);
 const card = document.querySelector(`#main-card`);
 const historySection = document.querySelector(`.history-section`);
@@ -17,6 +17,10 @@ const feels = document.querySelector(`#feels-temp`);
 const toggle = document.getElementById('unit-toggle');
 const thumb  = document.getElementById('toggle-thumb');
 const track  = document.querySelector('.toggle-track');
+
+let currentCelsius = 0;
+let feelsCelsius = 0;
+const tempUnit = document.querySelector('.power');
 
 async function getData(city) {
     try {
@@ -71,6 +75,19 @@ function updateUI(data) {
 
     const currentCondition = data.weather[0].main;
     weatherIcon.innerText = iconMap[currentCondition] || "🌡️";
+
+    currentCelsius = data.main.temp;
+    feelsCelsius = data.main.feels_like;
+
+    temp.innerText = Math.round(currentCelsius) + "°";
+    feels.innerText = Math.round(feelsCelsius) + "°";
+
+    isFahrenheit = false;
+    thumb.textContent = 'C'
+    thumb.classList.remove('active');
+    track.classList.remove('active');
+
+    tempUnit.innerText = 'C';
     cityInput.value = "";
 }
 
@@ -165,19 +182,28 @@ cityInput.addEventListener('keydown',(event) => {
 });
 
 
-//  \((20 \times 1.8) + 32 = 68^\circ\text{F}\)
-
+//----- Celcius to Fahrenheit Toggle -----//
 let isFahrenheit = false;
 
 toggle.addEventListener('click', () => {
     isFahrenheit = !isFahrenheit;
 
     if (isFahrenheit) {
-        thumb.textContent = 'F';
+        let tempF = (currentCelsius * 1.8) + 32;
+        let feelsF = (feelsCelsius * 1.8) + 32;
+        temp.innerText = Math.round(tempF) + "°";
+        feels.innerText = Math.round(feelsF) + "°";
+
+        tempUnit.innerText = 'F';
+        thumb.textContent = '°F';
         thumb.classList.add('active');
         track.classList.add('active');
     } else {
-        thumb.textContent = 'C';
+        temp.innerText = Math.round(currentCelsius) + "°";
+        feels.innerText = Math.round(feelsCelsius) + "°";
+
+        tempUnit.innerText = 'C';
+        thumb.textContent = '°C';
         thumb.classList.remove('active');
         track.classList.remove('active');
     }

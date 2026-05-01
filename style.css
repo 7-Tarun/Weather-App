@@ -59,7 +59,7 @@ body {
   padding: 14px 22px;
   margin-bottom: 20px;
   position: sticky;
-  /* scroll karo toh bhi upar rahe */
+  justify-content: space-between;
   top: 0;
   z-index: 100;
 }
@@ -325,6 +325,7 @@ body {
     color: #000;
     transition: left 0.3s ease;
     user-select: none;
+    padding-right: 3.5px;
 }
 
 .toggle-thumb.active {
@@ -352,6 +353,10 @@ body {
   .nav-bar {
     max-width: 100%;
     justify-content: center;
+  }
+
+  #unit-toggle{
+    padding-left: 100px;
   }
 
   .search-section {
