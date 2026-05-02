@@ -53,7 +53,7 @@ function updateUI(data) {
 
     card.classList.remove("big-card");
     temp.innerHTML = `${Math.round(feelsCelsius)}°<sup class = "power">C</sup>`;
-    feels.innerHTML = Math.round(data.main.feels_like) + '°';
+    feels.innerText = Math.round(data.main.feels_like) + '°';
     humidity.innerText = data.main.humidity+"%";
     wind.innerText = Math.round(data.wind.speed * 3.6) + 'Km/h';
     conditionText.innerText = data.weather[0].description.toUpperCase();
@@ -80,7 +80,7 @@ function updateUI(data) {
     const currentCondition = data.weather[0].main;
     weatherIcon.innerText = iconMap[currentCondition] || "🌡️";
 
-    temp.innerText = Math.round(currentCelsius) + "°";
+    temp.innerHTML = `${Math.round(currentCelsius)}°<sup class = "power">C</sup>`;
     feels.innerText = Math.round(feelsCelsius) + "°";
 
     isFahrenheit = false;
@@ -199,7 +199,7 @@ toggle.addEventListener('click', () => {
         thumb.classList.add('active');
         track.classList.add('active');
     } else {
-        temp.innerHtml = `${Math.round(currentCelsius)}°<sup class = "power">F</sup>`;
+        temp.innerHTML = `${Math.round(currentCelsius)}°<sup class = "power">C</sup>`;
         feels.innerText = Math.round(feelsCelsius) + "°";
 
         // tempUnit.innerText = 'C';
