@@ -209,5 +209,3 @@ toggle.addEventListener('click', () => {
     }
 
 });
-
-// scscs
