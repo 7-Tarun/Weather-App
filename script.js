@@ -133,7 +133,7 @@ function updateHistory(city) {
     //Filter repeated search name
     history = history.filter(item => item !== city);
 
-    //Putting new search city on the 1st place
+    //Placing new search city on the 1st place
     history.unshift(city);
 
     //Removing more then 3 search history
