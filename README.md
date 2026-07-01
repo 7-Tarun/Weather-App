@@ -1,5 +1,5 @@
 # 🌤️ Weather App (Glassmorphism UI)
-
+> Haven't stepped out of your room today? You don't need to. Check the real-time weather of your city right from your screen and get back to scrolling.😉
 A responsive, dynamic weather application built strictly with Vanilla JavaScript. This project focuses on modern asynchronous API integration, browser memory management, and a clean user interface.
 
 ## 🚀 Key Features
